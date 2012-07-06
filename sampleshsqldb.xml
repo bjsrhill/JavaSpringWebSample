@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<project name="samplesdb">
+  <property name="hjar" value="../lib/hsqldb.jar"/>
+  <property name="hclass" value="org.hsqldb.Server"/>
+  <property name="hfile" value="-database.0 data/samplesdb"/>
+  <property name="halias" value="samples"/>
+  <property name="hport" value="9005"/>
+    
+  <target name="starthsql">
+    <java fork="true"
+          classname="${hclass}" classpath="${hjar}" 
+          args="${hfile} -dbname.0 ${halias} -port ${hport}"/>
+  </target>
+    
+  <target name="execddl">
+      <sql classpath="${hjar}"
+         driver="org.hsqldb.jdbcDriver" 
+         url="jdbc:hsqldb:hsql://localhost:${hport}/${halias}" 
+         userid="sa" password="" 
+         print="yes">
+		 -- SQL script for Samples
+		 -- Drop tables if they exist
+		 DROP TABLE Pages IF EXISTS;
+
+		 -- Create the tables
+		 CREATE TABLE Pages
+		 (
+		    pageId IDENTITY NOT NULL,
+		    name VARCHAR(255) NOT NULL,
+		    textDesc VARCHAR(255) NOT NULL
+		 );
+
+		 -- Create table indexes
+		 CREATE UNIQUE INDEX PagesIndex ON Pages (pageId);
+
+		 -- Insert sample data
+		 INSERT INTO Pages (name, textDesc) 
+         VALUES ('Index', 'This is a sample web application built 
+      						with the Spring framework.');
+      	INSERT INTO Pages (name, textDesc) 
+      	      	 VALUES ('Index', 'Development methodology 
+      	      	      						is TDD with JUnit unit tests.');
+      	 INSERT INTO Pages (name, textDesc) 
+      	      	 VALUES ('Index', 'Data is obtained 
+			from a lightweight embedded database server HSQLDB
+			via Hibernate ORM and JavaScript.');
+      	 INSERT INTO Pages (name, textDesc) 
+      	      	 VALUES ('Index', 'Web pages are styled with CSS.');
+      	 INSERT INTO Pages (name, textDesc) 
+      	 VALUES ('Index', 'log4j is used for logging.');
+      	 INSERT INTO Pages (name, textDesc) 
+      	      	 VALUES ('Index', '© 2012 Beverly S. Hill');
+		 -- Select data that was inserted
+		 SELECT * FROM Pages;
+      </sql>
+  </target>
+  <target name="hsqldm">
+      <java fork="true" classpath="${hjar}" 
+            classname="org.hsqldb.util.DatabaseManagerSwing" />
+  </target>
+  <target name="sqltool">
+      <java fork="true" classpath="${hjar}" 
+            classname="org.hsqldb.util.SqlTool" args="localhost-sa"/>
+  </target>
+</project>

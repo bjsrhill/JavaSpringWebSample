@@ -1,0 +1,17 @@
+h1 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 24px; font-weight:800; color:#BDBDBD}
+h6 {border-top: 3px dotted #A4A4A4; margin-top: 5px;}
+h7 {border-right:1xp dashed #A4A4A4;}
+p {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; }
+td {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 14px; color: #A4A4A4; font-weight:400; }
+th {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 12px; font-style: bold; }
+thead { background-color: #CEF6F5;}
+.tableborder { border: thin; }
+.tdright { text-align: right; }
+.tdcenter {	text-align: center;}
+.even { background-color: #0174DF;}
+ body { margin: 0 }
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}

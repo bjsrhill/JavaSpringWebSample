@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="placeholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"
+			value="WEB-INF/classes/samples-servlet.properties" />
+	</bean>
+
+	<!-- URL mapping -->
+	<bean id="urlMap"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="urlMap">
+			<props>
+				<prop key="/pagesList.htm">pagesController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Controllers -->
+	<bean id="urlFilenameController"
+		class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
+	<bean name="pagesController"
+		class="com.beverlyshill.samples.controller.PagesController">
+		<property name="successView">
+			<value>pagesList</value>
+		</property>
+		<property name="pagesManager">
+			<ref bean="pagesManager" />
+		</property>
+	</bean>
+	
+	<!-- Model classes -->
+	<bean id="pagesManager"
+		class="com.beverlyshill.samples.model.PagesManager" />
+	
+	<!-- View Resolver -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="prefix">
+			<value>/WEB-INF/jsp/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<!-- Resource Bundle -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+			</list>
+		</property>
+	</bean>
+</beans>
