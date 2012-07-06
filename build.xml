@@ -34,7 +34,6 @@ Build file for Samples application
               value="${src.dir}/com/beverlyshill/samples/util" />
     <property name="envprops" value="${env}.properties" />
     <property name="samplesprops" value="${class.dir}/samples-servlet.properties"/>
-    <property name="deploy.dir" value="/Users/bhill2/Downloads/jetty-6.1.26/webapps" />
 
     <path id="master-classpath" description="Master CLASSPATH for this script">
         <fileset dir="${lib.dir}">
