@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="classes" path="src"/>
 	<classpathentry kind="var" path="JRE_LIB" sourcepath="JRE_SRC"/>
 	<classpathentry kind="lib" path="lib/activation.jar"/>
 	<classpathentry kind="lib" path="lib/antlr-2.7.6rc1.jar"/>
@@ -36,5 +35,4 @@
 	<classpathentry kind="lib" path="lib/spring-mock.jar"/>
 	<classpathentry kind="lib" path="lib/standard.jar"/>
 	<classpathentry kind="con" path="/Users/bhill2/Documents/BeverlySHillSamples/samples/build/samples/WEB-INF/classes"/>
-	<classpathentry kind="output" path="bin"/>
 </classpath>

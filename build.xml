@@ -71,6 +71,11 @@ Build file for Samples application
                 <include name="**/*" />
             </fileset>
         </delete>
+    	<delete failonerror="false">
+	        <fileset dir="${data.dir}">
+	            <include name="**/*" />
+	        </fileset>
+	    </delete>
 	<delete dir="${build.dir}">
 	</delete>
     </target>
