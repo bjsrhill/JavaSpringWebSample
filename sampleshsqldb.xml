@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <project name="samplesdb">
-  <property name="hjar" value="../lib/hsqldb.jar"/>
+  <property name="hjar" value="lib/hsqldb.jar"/>
   <property name="hclass" value="org.hsqldb.Server"/>
   <property name="hfile" value="-database.0 data/samplesdb"/>
   <property name="halias" value="samples"/>
