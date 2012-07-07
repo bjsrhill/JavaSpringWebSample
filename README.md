@@ -28,9 +28,4 @@ ant deploy
 
 To rebuild run the following at the samples directory:
 
-<<<<<<< HEAD
 ant rebuild
-=======
-ant rebuild
-
->>>>>>> Modifications
