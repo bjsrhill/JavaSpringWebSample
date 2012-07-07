@@ -38,7 +38,7 @@
 		 INSERT INTO Pages (name, textDesc) 
          VALUES ('Index', 'This is a sample web application built 
       						with the Spring framework.');
-      	INSERT INTO Pages (name, textDesc) 
+      	 INSERT INTO Pages (name, textDesc) 
       	      	 VALUES ('Index', 'Development methodology 
       	      	      						is TDD with JUnit unit tests.');
       	 INSERT INTO Pages (name, textDesc) 
