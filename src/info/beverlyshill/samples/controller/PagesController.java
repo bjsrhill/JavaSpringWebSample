@@ -33,7 +33,9 @@ public class PagesController implements Controller {
 		return new ModelAndView(getSuccessView(), MAP_KEY, pages);
 	}
 
-	/** Forwards to success view */
+	/** 
+	 * Forwards to success view 
+	 */
 	public ModelAndView showForm(HttpServletRequest request,
 			HttpServletResponse response, BindException errors, Map controlModel)
 			throws Exception {

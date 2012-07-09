@@ -37,7 +37,7 @@ public class PagesControllerTest extends TestCase {
 	}
 
 	/**
-	 * Test getting a particular Pages record
+	 * Tests getting a particular Pages record
 	 */
 	public void testShowForm() throws Exception {
 		mockHttpServletRequest = new MockHttpServletRequest("GET",
@@ -70,7 +70,7 @@ public class PagesControllerTest extends TestCase {
 	}
 
 	/**
-	 * Create test Pages objects in database. The is called before each test.
+	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
 		try {

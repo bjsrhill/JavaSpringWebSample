@@ -27,8 +27,8 @@ public class PagesManagerTest extends TestCase {
 	}
 
 	/**
-	 * Tests returning a List of all of the rows in the Pages table Tests
-	 * returning a single page object by pageId
+	 * Tests returning a List of all of the rows in the Pages table and
+	 * iterating through the list getting each page with the pageId
 	 */
 	public void testGetAllPages() {
 		List pagesList = pagesManager.getPages();
@@ -44,7 +44,7 @@ public class PagesManagerTest extends TestCase {
 	}
 
 	/**
-	 * Create test Pages objects in database. The is called before each test.
+	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
 		Pages page = null;
