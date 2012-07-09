@@ -1,4 +1,6 @@
 /data
 /dist
+/build
 .war
 .DS_Store
+TEST-info*
