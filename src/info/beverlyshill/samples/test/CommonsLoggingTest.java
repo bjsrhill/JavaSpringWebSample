@@ -1,4 +1,4 @@
-package com.beverlyshill.samples.test;
+package info.beverlyshill.samples.test;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

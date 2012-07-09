@@ -1,4 +1,4 @@
-package com.beverlyshill.samples.test;
+package info.beverlyshill.samples.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -6,7 +6,7 @@ import junit.framework.TestSuite;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.beverlyshill.samples.controller.PagesController;
+import info.beverlyshill.samples.controller.PagesController;
 
 /**
  * Test of the JUnit framework

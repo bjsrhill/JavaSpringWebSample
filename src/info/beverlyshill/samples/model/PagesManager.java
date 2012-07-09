@@ -1,15 +1,15 @@
-package com.beverlyshill.samples.model;
+package info.beverlyshill.samples.model;
 
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import com.beverlyshill.samples.util.HibernateUtil;
+import info.beverlyshill.samples.util.HibernateUtil;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.hibernate.LockMode;
 
-import com.beverlyshill.samples.controller.PagesController;
-import com.beverlyshill.samples.model.Pages;
+import info.beverlyshill.samples.controller.PagesController;
+import info.beverlyshill.samples.model.Pages;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

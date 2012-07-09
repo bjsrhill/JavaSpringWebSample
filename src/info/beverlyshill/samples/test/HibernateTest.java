@@ -1,11 +1,11 @@
-package com.beverlyshill.samples.test;
+package info.beverlyshill.samples.test;
 
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import com.beverlyshill.samples.model.Pages;
+import info.beverlyshill.samples.model.Pages;
 
 /**
  * Tests that Hibernate is configured properly by selecting the records from the

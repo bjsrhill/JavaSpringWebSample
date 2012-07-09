@@ -1,4 +1,4 @@
-package com.beverlyshill.samples.controller;
+package info.beverlyshill.samples.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
-import com.beverlyshill.samples.model.PagesManager;
+import info.beverlyshill.samples.model.PagesManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 

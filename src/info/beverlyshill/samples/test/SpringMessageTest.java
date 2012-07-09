@@ -1,4 +1,4 @@
-package com.beverlyshill.samples.test;
+package info.beverlyshill.samples.test;
 
 /**
  * Manages the Spring test message

@@ -1,11 +1,10 @@
-package com.beverlyshill.samples.util;
+package info.beverlyshill.samples.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-
-import com.beverlyshill.samples.controller.PagesController;
+import info.beverlyshill.samples.controller.PagesController;
 
 /**
  * Taken from the Hibernate 3.1 reference manual.

@@ -1,8 +1,8 @@
-package com.beverlyshill.samples.test;
+package info.beverlyshill.samples.test;
 
-import com.beverlyshill.samples.controller.PagesController;
-import com.beverlyshill.samples.model.Pages;
-import com.beverlyshill.samples.model.PagesManager;
+import info.beverlyshill.samples.controller.PagesController;
+import info.beverlyshill.samples.model.Pages;
+import info.beverlyshill.samples.model.PagesManager;
 import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestCase;

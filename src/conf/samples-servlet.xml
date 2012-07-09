@@ -25,7 +25,7 @@
 	<bean id="urlFilenameController"
 		class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
 	<bean name="pagesController"
-		class="com.beverlyshill.samples.controller.PagesController">
+		class="info.beverlyshill.samples.controller.PagesController">
 		<property name="successView">
 			<value>pagesList</value>
 		</property>
@@ -36,7 +36,7 @@
 	
 	<!-- Model classes -->
 	<bean id="pagesManager"
-		class="com.beverlyshill.samples.model.PagesManager" />
+		class="info.beverlyshill.samples.model.PagesManager" />
 	
 	<!-- View Resolver -->
 	<bean id="viewResolver"

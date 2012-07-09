@@ -25,13 +25,13 @@ Build file for Samples application
     <property name="warlib.dir" value="${war.dir}/WEB-INF/lib" />
     <property name="jsp.dir" value="${war.dir}/WEB-INF/jsp" />
     <property name="views.dir" 
-              value="${src.dir}/com/beverlyshill/samples/view" />
+              value="${src.dir}/info/beverlyshill/samples/view" />
     <property name="model.dir" 
-              value="${src.dir}/com/beverlyshill/samples/model" />
+              value="${src.dir}/info/beverlyshill/samples/model" />
     <property name="controller.dir" 
-              value="${src.dir}/com/beverlyshill/samples/controller" />
+              value="${src.dir}/info/beverlyshill/samples/controller" />
     <property name="util.dir" 
-              value="${src.dir}/com/beverlyshill/samples/util" />
+              value="${src.dir}/info/beverlyshill/samples/util" />
     <property name="envprops" value="${env}.properties" />
     <property name="samplesprops" value="${class.dir}/samples-servlet.properties"/>
 
@@ -125,7 +125,7 @@ Build file for Samples application
         <echo level="info">Environment config file: ${envprops}</echo>
         <copy file="${envprops}" tofile="${samplesprops}" />
         <copy todir="${class.dir}">
-            <fileset dir="${src.dir}/com/beverlyshill/samples/model/">
+            <fileset dir="${src.dir}/info/beverlyshill/samples/model/">
                 <include name="**/*.xml" />
             </fileset>
             <fileset dir="${src.dir}/conf">
@@ -221,32 +221,32 @@ Build file for Samples application
     <target name="hibernatetest" depends="build">
 	<echo>Running hibernatetest</echo>
         <java fork="true" classpathref="master-classpath" 
-              classname="com.beverlyshill.samples.test.HibernateTest" />
+              classname="info.beverlyshill.samples.test.HibernateTest" />
     </target>
 
 	<!-- Spring test -->
     <target name="springtest" depends="build">
 	<echo>Running springtest</echo>
         <java fork="true" classpathref="master-classpath" 
-              classname="com.beverlyshill.samples.test.SpringTest" />
+              classname="info.beverlyshill.samples.test.SpringTest" />
     </target>
 	
 	<!-- PagesController test -->
     <target name="pagescontrollertest">
         <java fork="true" classpathref="master-classpath" 
-        classname="com.beverlyshill.samples.test.PagesControllerTest"/>
+        classname="info.beverlyshill.samples.test.PagesControllerTest"/>
     </target>
 	
 	<!-- PagesManager test -->
 	    <target name="pagesmanagertest">
 	        <java fork="true" classpathref="master-classpath" 
-	        classname="com.beverlyshill.samples.test.PagesManagerTest"/>
+	        classname="info.beverlyshill.samples.test.PagesManagerTest"/>
 	    </target>
 	
 	<!-- Logging test -->
 		<target name="commonsloggingtest">
 		<echo>Running commonsloggingtest</echo>
 		    <java fork="true" classpathref="master-classpath" 
-		    classname="com.beverlyshill.samples.test.CommonsLoggingTest"/>
+		    classname="info.beverlyshill.samples.test.CommonsLoggingTest"/>
 		</target>
 </project>

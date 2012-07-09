@@ -4,7 +4,7 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.beverlyshill.samples.model.Pages" table="Pages">
+    <class name="info.beverlyshill.samples.model.Pages" table="Pages">
 		<id name="pageId" column="pageId">
 			<generator class="identity"/>
 		</id>

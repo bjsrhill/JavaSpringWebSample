@@ -1,4 +1,4 @@
-package com.beverlyshill.samples.model;
+package info.beverlyshill.samples.model;
 
 /**
  * Model class for Pages table
