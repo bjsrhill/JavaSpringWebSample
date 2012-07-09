@@ -22,6 +22,8 @@ To build, run the following at the project root:
 
 ant build
 
+To run in a Java servlet container, edit the deploy.dir path in the local.properties file.
+
 To deploy, run the following at the project root:
 
 ant deploy
