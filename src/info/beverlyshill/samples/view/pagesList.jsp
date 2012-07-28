@@ -7,38 +7,20 @@
 		<LINK REL=stylesheet HREF="includes/sample.css" TYPE="text/css"/>
 		<script src="includes/pagesList.js"></script>
 	</head>
-	<body bgcolor = #CEF6F5>
-		<table width="100%" border="0" align="left" cellpadding="10"
-						cellspacing="10" bgcolor = #D8CEF6>
-			<tr>
-				<td>
-					<h1 id="headingMessage"></h1>
-				</td>
-			</tr>
-		</table>
-		<table width="65%" border="0" align="right" cellpadding="0"
-						cellspacing="0">	
-			<tr>
-				<td>
-					<table width="100%" border="0" align="center" cellpadding="0"
-														cellspacing="0">
-						<tr align="middle">
-							<td idth="100%" valign="middle">
-								<c:forEach items="${pages}" var="pages">
-									<tr>
-										<td align="left">
-											<br />
-											<h6>
-											</h6>
-												<c:out value="${pages.textDesc}"/>	
-										</td>
-									</tr>
-								</c:forEach>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
+	<body>
+		<section id="banner">  
+	    	<h1 id="headingMessage"></h1>   
+	    </section> 
+		<section id="pitches">
+			<article class="mainEmail">
+				<c:forEach items="${pages}" var="pages">
+					<h6>
+					</h6>
+				  <c:out value="${pages.textDesc}"/>	
+				</c:forEach>
+				<h6>
+				</h6>
+			</article>
+		</section>
 	</body>
 </html>
