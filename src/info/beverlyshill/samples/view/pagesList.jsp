@@ -16,8 +16,10 @@
 				<c:forEach items="${pages}" var="pages">
 					<h6>
 					</h6>
+				<h2>
 				  <c:out value="${pages.textDesc}"/>	
 				</c:forEach>
+				</h2>
 				<h6>
 				</h6>
 			</article>
