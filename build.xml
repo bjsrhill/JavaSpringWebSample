@@ -237,11 +237,29 @@ Build file for Samples application
         classname="info.beverlyshill.samples.test.PagesControllerTest"/>
     </target>
 	
+	<!-- PagesMobileController test -->
+	    <target name="pagesmobilecontrollertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesMobileControllerTest"/>
+	    </target>
+	
+	<!-- PagesSampleSpecDevelopmentController test -->
+		    <target name="pagessampledevelopmentspeccontrollertest">
+		        <java fork="true" classpathref="master-classpath" 
+		        classname="info.beverlyshill.samples.test.PagesSampleDevelopmentSpecControllerTest"/>
+		    </target>
+	
 	<!-- PagesManager test -->
 	    <target name="pagesmanagertest">
 	        <java fork="true" classpathref="master-classpath" 
 	        classname="info.beverlyshill.samples.test.PagesManagerTest"/>
 	    </target>
+	
+	<!-- PagesMobileManager test -->
+		    <target name="pagesmobilemanagertest">
+		        <java fork="true" classpathref="master-classpath" 
+		        classname="info.beverlyshill.samples.test.PagesMobileManagerTest"/>
+		    </target>
 	
 	<!-- Logging test -->
 		<target name="commonsloggingtest">

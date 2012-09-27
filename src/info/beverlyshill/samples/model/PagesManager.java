@@ -8,7 +8,7 @@ import info.beverlyshill.samples.util.HibernateUtil;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.hibernate.LockMode;
 
-import info.beverlyshill.samples.controller.PagesController;
+//import info.beverlyshill.samples.controller.PagesController;
 import info.beverlyshill.samples.model.Pages;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -20,18 +20,18 @@ import org.apache.commons.logging.LogFactory;
  */
 public class PagesManager {
 
-	private static Log log = LogFactory.getLog(PagesController.class);
+	private static Log log = LogFactory.getLog(PagesManager.class);
 
 	/**
-	 * Returns list of all Pages records
+	 * Returns list of all Pages records having name value of Index
 	 */
 	public List getPages() {
 		List PagesList = null;
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		try {
-			PagesList = session.createQuery("from Pages ORDER BY pageId")
-					.list();
+			PagesList = session.createQuery(
+					"from Pages where name = 'Index' ORDER BY pageId").list();
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			session.getTransaction().rollback();

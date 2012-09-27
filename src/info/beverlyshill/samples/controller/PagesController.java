@@ -28,21 +28,20 @@ public class PagesController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		List pages = pagesManager.getPages();
-		//Log number of Pages records retrieved
+		// Log number of Pages records retrieved
 		log.info("Retrieved " + pages.size() + " records from Pages table.");
 		return new ModelAndView(getSuccessView(), MAP_KEY, pages);
 	}
 
-	/** 
-	 * Forwards to success view 
+	/**
+	 * Forwards to success view
 	 */
 	public ModelAndView showForm(HttpServletRequest request,
 			HttpServletResponse response, BindException errors, Map controlModel)
 			throws Exception {
 		try {
 			return new ModelAndView(getSuccessView());
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			log.error(e.getMessage());
 			throw e;
 		}

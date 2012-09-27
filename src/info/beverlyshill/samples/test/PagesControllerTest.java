@@ -22,11 +22,11 @@ public class PagesControllerTest extends TestCase {
 	private PagesController pagesController = null;
 	private PagesManager pagesManager = new PagesManager();
 	private Pages page = null;
-	private String name = "test name controller";
+	private String name = "Index";
 	private String desc = "description controller";
 	private boolean match = false;
 	private int pageId = 0;
-	private static Log log = LogFactory.getLog(PagesController.class);
+	private static Log log = LogFactory.getLog(PagesControllerTest.class);
 
 	public static void main(String args[]) {
 		junit.textui.TestRunner.run(suite());

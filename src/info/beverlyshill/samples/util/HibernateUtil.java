@@ -13,7 +13,7 @@ import info.beverlyshill.samples.controller.PagesController;
  */
 public class HibernateUtil {
 	private static final SessionFactory sessionFactory;
-	private static Log log = LogFactory.getLog(PagesController.class);
+	private static Log log = LogFactory.getLog(HibernateUtil.class);
 
 	static {
 		try {

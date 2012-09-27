@@ -17,6 +17,12 @@
 		<property name="urlMap">
 			<props>
 				<prop key="/pagesList.htm">pagesController</prop>
+				<prop key="/pagesListMobile.htm">pagesMobileController</prop>
+				<prop key="/sampleSpec.htm">pagesMobileSpecController</prop>
+				<prop key="/developmentSpecs.htm">pagesMobileDevelopmentController</prop>
+				<prop key="/dataManagement.htm">pagesMobileDataMgtController</prop>
+				<prop key="styling.htm">pagesMobileStylingController</prop>
+				<prop key="logging.htm">pagesMobileLoggingController</prop>
 			</props>
 		</property>
 	</bean>
@@ -33,11 +39,67 @@
 			<ref bean="pagesManager" />
 		</property>
 	</bean>
+	<bean name="pagesMobileController"
+		class="info.beverlyshill.samples.controller.PagesMobileController">
+		<property name="successView">
+			<value>pagesListMobile</value>
+		</property>
+		<property name="pagesMobileManager">
+			<ref bean="pagesMobileManager" />
+		</property>
+	</bean>
+	<bean name="pagesMobileSpecController"
+		class="info.beverlyshill.samples.controller.PagesMobileSpecController">
+		<property name="successView">
+			<value>sampleSpec</value>
+		</property>
+		<property name="pagesMobileManager">
+			<ref bean="pagesMobileManager" />
+		</property>
+	</bean>
+	<bean name="pagesMobileDevelopmentController"
+		class="info.beverlyshill.samples.controller.PagesMobileDevelopmentController">
+		<property name="successView">
+			<value>developmentSpecs</value>
+		</property>
+		<property name="pagesMobileManager">
+			<ref bean="pagesMobileManager" />
+		</property>
+	</bean>
+	<bean name="pagesMobileDataMgtController"
+		class="info.beverlyshill.samples.controller.PagesMobileDataMgtController">
+		<property name="successView">
+			<value>dataDevelopment</value>
+		</property>
+		<property name="pagesMobileManager">
+			<ref bean="pagesMobileManager" />
+		</property>
+	</bean>
+	<bean name="pagesMobileStylingController"
+		class="info.beverlyshill.samples.controller.PagesMobileStylingController">
+		<property name="successView">
+			<value>styling</value>
+		</property>
+		<property name="pagesMobileManager">
+			<ref bean="pagesMobileManager" />
+		</property>
+	</bean>
+	<bean name="pagesMobileLoggingController"
+		class="info.beverlyshill.samples.controller.PagesMobileLoggingController">
+		<property name="successView">
+			<value>logging</value>
+		</property>
+		<property name="pagesMobileManager">
+			<ref bean="pagesMobileManager" />
+		</property>
+	</bean>
 	
 	<!-- Model classes -->
 	<bean id="pagesManager"
 		class="info.beverlyshill.samples.model.PagesManager" />
-	
+	<bean id="pagesMobileManager"
+		class="info.beverlyshill.samples.model.PagesMobileManager" />
+		
 	<!-- View Resolver -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

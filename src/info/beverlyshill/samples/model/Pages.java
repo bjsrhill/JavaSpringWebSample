@@ -9,6 +9,7 @@ public class Pages {
 	int pageId;
 	String name;
 	String textDesc;
+	String detailPage;
 
 	public int getPageId() {
 		return this.pageId;
@@ -33,4 +34,13 @@ public class Pages {
 	public void setTextDesc(String textDesc) {
 		this.textDesc = textDesc;
 	}
+
+	public String getDetailPage() {
+		return detailPage;
+	}
+
+	public void setDetailPage(String detailPage) {
+		this.detailPage = detailPage;
+	}
+
 }

@@ -10,5 +10,6 @@
 		</id>
 		<property name="name" type="java.lang.String" column="name" length="255" not-null="true"/>
 		<property name="textDesc" type="java.lang.String" column="textDesc" length="255" not-null="true"/>
+		<property name="detailPage" type="java.lang.String" column="detailPage" length="255" not-null="false"/>
    </class>
 </hibernate-mapping>
