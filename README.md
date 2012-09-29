@@ -3,7 +3,7 @@ JavaSpringWebSample
 
 This is a sample web application built using:
 
-- the Spring Framework
+- The Spring Framework
 - Hibernate
 - HSQLDB
 - log4j
