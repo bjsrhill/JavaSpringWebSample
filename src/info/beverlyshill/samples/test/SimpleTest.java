@@ -15,7 +15,6 @@ import info.beverlyshill.samples.controller.PagesController;
  */
 public class SimpleTest extends TestCase {
 	int value1 = 2, value2 = 3, expectedResult = 5;
-	private static Log log = LogFactory.getLog(PagesController.class);
 
 	public static void main(String args[]) {
 		junit.textui.TestRunner.run(suite());

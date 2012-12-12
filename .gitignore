@@ -53,3 +53,6 @@ TEST-info*
 /bin/web/includes/pagesListMobile.js
 /bin/web/includes/sample.css
 /bin/web/index.jsp
+/samples.log
+PagesMobileDataMgtSAXControllerTest.class
+/bin/info/beverlyshill/samples/test/PagesMobileDataMgtSAXControllerTest.class

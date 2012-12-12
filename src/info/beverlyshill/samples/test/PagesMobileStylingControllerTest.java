@@ -38,37 +38,20 @@ public class PagesMobileStylingControllerTest extends TestCase {
 	}
 
 	/**
-	 * Tests getting a particular Pages record
+	 * Tests returning a List of all of the rows in the Pages table with a name
+	 * value of 'Heading' and iterating through the list getting each page with
+	 * the pageId
 	 */
-	public void testShowForm() throws Exception {
-		mockHttpServletRequest = new MockHttpServletRequest("GET",
-				"/index.html");
-
-		try {
-			Pages pages = new Pages();
-			pagesMobileStylingController = new PagesMobileStylingController();
-			pagesMobileStylingController
-					.setPagesMobileManager(pagesMobileManager);
-			ModelAndView modelAndView = pagesMobileStylingController
-					.handleRequest(mockHttpServletRequest, null);
-			assertNotNull(modelAndView);
-			assertNotNull(modelAndView.getModel());
-			List pagesList = (List) modelAndView.getModel().get(
-					PagesMobileStylingController.MAP_KEY);
-			assertNotNull(pagesList);
-			for (int i = 0; i < pagesList.size(); i++) {
-				page = (Pages) pagesList.get(i);
-				if (desc.equals(page.getTextDesc())) {
-					match = true;
-					pageId = page.getPageId();
-				}
-			}
-			assertTrue(match == true);
-			System.out.println(page.getTextDesc() + " passed!");
-		} catch (Exception e) {
-			log.error("From PagesMobileStylingControllerTest :"
-					+ e.getMessage());
-			throw e;
+	public void testGetAllPages() {
+		pagesMobileStylingController.setPagesMobileManager(pagesMobileManager);
+		List pagesList = pagesMobileManager.getPages();
+		assertNotNull(pagesList);
+		assertTrue(pagesList.size() > 0);
+		pagesList = pagesMobileStylingController.getPagesMobileManager().getPages();
+		assertNotNull(pagesList);
+		for (int i = 0; i < pagesList.size(); i++) {
+			page = (Pages) pagesList.get(i);
+			assertNotNull(pagesMobileStylingController.getPagesMobileManager().getPage(page.getPageId()));
 		}
 	}
 
@@ -76,17 +59,7 @@ public class PagesMobileStylingControllerTest extends TestCase {
 	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
-		try {
-			Pages page = null;
-			page = new Pages();
-			page.setName(name);
-			page.setTextDesc(desc);
-			pagesMobileStylingController.getPagesMobileManager()
-					.savePages(page);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw e;
-		}
+		
 	}
 
 	/**
@@ -94,7 +67,7 @@ public class PagesMobileStylingControllerTest extends TestCase {
 	 * test.
 	 */
 	protected void tearDown() throws Exception {
-		pagesMobileStylingController.getPagesMobileManager().deletePage(pageId);
+		
 	}
 
 }

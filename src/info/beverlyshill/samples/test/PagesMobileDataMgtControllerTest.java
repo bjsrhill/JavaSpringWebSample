@@ -38,37 +38,20 @@ public class PagesMobileDataMgtControllerTest extends TestCase {
 	}
 
 	/**
-	 * Tests getting a particular Pages record
+	 * Tests returning a List of all of the rows in the Pages table with a name
+	 * value of 'Heading' and iterating through the list getting each page with
+	 * the pageId
 	 */
-	public void testShowForm() throws Exception {
-		mockHttpServletRequest = new MockHttpServletRequest("GET",
-				"/index.html");
-
-		try {
-			Pages pages = new Pages();
-			pagesMobileDataMgtController = new PagesMobileDataMgtController();
-			pagesMobileDataMgtController
-					.setPagesMobileManager(pagesMobileManager);
-			ModelAndView modelAndView = pagesMobileDataMgtController
-					.handleRequest(mockHttpServletRequest, null);
-			assertNotNull(modelAndView);
-			assertNotNull(modelAndView.getModel());
-			List pagesList = (List) modelAndView.getModel().get(
-					PagesMobileDataMgtController.MAP_KEY);
-			assertNotNull(pagesList);
-			for (int i = 0; i < pagesList.size(); i++) {
-				page = (Pages) pagesList.get(i);
-				if (desc.equals(page.getTextDesc())) {
-					match = true;
-					pageId = page.getPageId();
-				}
-			}
-			assertTrue(match == true);
-			System.out.println(page.getTextDesc() + " passed!");
-		} catch (Exception e) {
-			log.error("From PagesMobileDataMgtControllerTest :"
-					+ e.getMessage());
-			throw e;
+	public void testGetAllPages() {
+		pagesMobileDataMgtController.setPagesMobileManager(pagesMobileManager);
+		List pagesList = pagesMobileDataMgtController.getPagesMobileManager().getPages();
+		assertNotNull(pagesList);
+		assertTrue(pagesList.size() > 0);
+		pagesList = pagesMobileDataMgtController.getPagesMobileManager().getPages();
+		assertNotNull(pagesList);
+		for (int i = 0; i < pagesList.size(); i++) {
+			page = (Pages) pagesList.get(i);
+			assertNotNull(pagesMobileDataMgtController.getPagesMobileManager().getPage(page.getPageId()));
 		}
 	}
 
@@ -76,17 +59,7 @@ public class PagesMobileDataMgtControllerTest extends TestCase {
 	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
-		try {
-			Pages page = null;
-			page = new Pages();
-			page.setName(name);
-			page.setTextDesc(desc);
-			pagesMobileDataMgtController.getPagesMobileManager()
-					.savePages(page);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw e;
-		}
+		
 	}
 
 	/**
@@ -94,7 +67,7 @@ public class PagesMobileDataMgtControllerTest extends TestCase {
 	 * test.
 	 */
 	protected void tearDown() throws Exception {
-		pagesMobileDataMgtController.getPagesMobileManager().deletePage(pageId);
+		
 	}
 
 }

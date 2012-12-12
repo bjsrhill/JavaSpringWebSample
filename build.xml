@@ -232,10 +232,16 @@ Build file for Samples application
     </target>
 	
 	<!-- PagesController test -->
-    <target name="pagescontrollertest">
-        <java fork="true" classpathref="master-classpath" 
-        classname="info.beverlyshill.samples.test.PagesControllerTest"/>
-    </target>
+	    <target name="pagescontrollertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesControllerTest"/>
+	    </target>
+	
+	<!-- PagesManagerController test -->
+	    <target name="pagesmanagertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesManagerTest"/>
+	    </target>
 	
 	<!-- PagesMobileController test -->
 	    <target name="pagesmobilecontrollertest">
@@ -243,23 +249,48 @@ Build file for Samples application
 	        classname="info.beverlyshill.samples.test.PagesMobileControllerTest"/>
 	    </target>
 	
-	<!-- PagesSampleSpecDevelopmentController test -->
-		    <target name="pagessampledevelopmentspeccontrollertest">
+	<!-- PagesMobileSpecController test -->
+		    <target name="pagesmobilespeccontrollertest">
 		        <java fork="true" classpathref="master-classpath" 
-		        classname="info.beverlyshill.samples.test.PagesSampleDevelopmentSpecControllerTest"/>
+		        classname="info.beverlyshill.samples.test.PagesMobileSpecControllerTest"/>
 		    </target>
-	
-	<!-- PagesManager test -->
-	    <target name="pagesmanagertest">
-	        <java fork="true" classpathref="master-classpath" 
-	        classname="info.beverlyshill.samples.test.PagesManagerTest"/>
-	    </target>
 	
 	<!-- PagesMobileManager test -->
-		    <target name="pagesmobilemanagertest">
+	    <target name="pagesmobilemanagertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesMobileManagerTest"/>
+	    </target>
+	
+	<!-- PagesMobileDataMgtController test -->
+	    <target name="pagesmobiledatamgtcontrollertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesMobileDataMgtControllerTest"/>
+	    </target>
+	
+	<!-- PagesMobileDataMgtSAXController test -->
+	    <target name="pagesmobiledatamgtsaxcontrollertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesMobileDataMgtSAXControllerTest"/>
+	    </target>
+	
+	<!-- PagesMobileDevelopmentController test -->
+	    <target name="pagesmobiledevelopmentcontrollertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesMobileDevelopmentControllerTest"/>
+	    </target>
+	
+	<!-- PagesMobileLoggingControllerTest test -->
+	    <target name="pagesmobileloggingcontrollertest">
+	        <java fork="true" classpathref="master-classpath" 
+	        classname="info.beverlyshill.samples.test.PagesMobileLoggingControllerTest"/>
+	    </target>
+	
+	<!-- PagesMobileStylingControllerTest test -->
+		    <target name="pagesmobilestylingcontrollertest">
 		        <java fork="true" classpathref="master-classpath" 
-		        classname="info.beverlyshill.samples.test.PagesMobileManagerTest"/>
+		        classname="info.beverlyshill.samples.test.PagesMobileStylingControllerTest"/>
 		    </target>
+	
 	
 	<!-- Logging test -->
 		<target name="commonsloggingtest">

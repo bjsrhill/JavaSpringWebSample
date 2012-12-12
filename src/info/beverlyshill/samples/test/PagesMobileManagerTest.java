@@ -23,7 +23,7 @@ public class PagesMobileManagerTest extends TestCase {
 	}
 
 	public static Test suite() {
-		return new TestSuite(PagesManagerTest.class);
+		return new TestSuite(PagesMobileManagerTest.class);
 	}
 
 	/**
@@ -40,7 +40,6 @@ public class PagesMobileManagerTest extends TestCase {
 		for (int i = 0; i < pagesList.size(); i++) {
 			page = (Pages) pagesList.get(i);
 			assertNotNull(pagesMobileManager.getPage(page.getPageId()));
-			System.out.println("Pages name = " + page.getPageId());
 		}
 	}
 
@@ -48,11 +47,7 @@ public class PagesMobileManagerTest extends TestCase {
 	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
-		Pages page = null;
-		page = new Pages();
-		page.setName(NAME);
-		page.setTextDesc(DESC);
-		pagesMobileManager.savePages(page);
+		
 	}
 
 	/**
@@ -60,6 +55,6 @@ public class PagesMobileManagerTest extends TestCase {
 	 * test.
 	 */
 	protected void tearDown() throws Exception {
-		pagesMobileManager.deletePage(page.getPageId());
+		;
 	}
 }

@@ -38,8 +38,7 @@ public class PagesManagerTest extends TestCase {
 		assertNotNull(pagesList);
 		for (int i = 0; i < pagesList.size(); i++) {
 			page = (Pages) pagesList.get(i);
-			assertNotNull(pagesManager.getPage(page.getPageId()));
-			System.out.println("Pages name = " + page.getPageId());
+			assertNotNull(pagesManager.getPage(page.getPageId()));;
 		}
 	}
 
@@ -47,11 +46,7 @@ public class PagesManagerTest extends TestCase {
 	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
-		Pages page = null;
-		page = new Pages();
-		page.setName(NAME);
-		page.setTextDesc(DESC);
-		pagesManager.savePages(page);
+		
 	}
 
 	/**
@@ -59,6 +54,6 @@ public class PagesManagerTest extends TestCase {
 	 * test.
 	 */
 	protected void tearDown() throws Exception {
-		pagesManager.deletePage(page.getPageId());
+		
 	}
 }

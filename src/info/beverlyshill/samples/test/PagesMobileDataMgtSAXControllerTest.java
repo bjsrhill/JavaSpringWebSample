@@ -1,11 +1,11 @@
 package info.beverlyshill.samples.test;
 
-import info.beverlyshill.samples.controller.PagesMobileLoggingController;
+import junit.framework.TestCase;
+import info.beverlyshill.samples.controller.PagesMobileDataMgtSAXController;
 import info.beverlyshill.samples.model.Pages;
 import info.beverlyshill.samples.model.PagesMobileManager;
 import java.util.List;
 import junit.framework.Test;
-import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,28 +13,29 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Test for PagesMobileLoggingController.java
+ * Tests for PagesMobileDataMgtSAXController
  * 
  * @author bhill2
+ *
  */
-public class PagesMobileLoggingControllerTest extends TestCase {
+public class PagesMobileDataMgtSAXControllerTest extends TestCase {
 	private MockHttpServletRequest mockHttpServletRequest = null;
-	private PagesMobileLoggingController pagesMobileLoggingController = new PagesMobileLoggingController();
+	private PagesMobileDataMgtSAXController pagesMobileDataMgtSAXController = new PagesMobileDataMgtSAXController();
 	private PagesMobileManager pagesMobileManager = new PagesMobileManager();
 	private Pages page = null;
-	private String name = "Heading";
+	private String name = "Index";
 	private String desc = "description controller";
 	private boolean match = false;
 	private int pageId = 0;
 	private static Log log = LogFactory
-			.getLog(PagesMobileLoggingController.class);
-
+			.getLog(PagesMobileDataMgtSAXControllerTest.class);
+	
 	public static void main(String args[]) {
 		junit.textui.TestRunner.run(suite());
 	}
 
 	public static Test suite() {
-		return new TestSuite(PagesMobileLoggingControllerTest.class);
+		return new TestSuite(PagesMobileDataMgtSAXControllerTest.class);
 	}
 
 	/**
@@ -43,15 +44,15 @@ public class PagesMobileLoggingControllerTest extends TestCase {
 	 * the pageId
 	 */
 	public void testGetAllPages() {
-		pagesMobileLoggingController.setPagesMobileManager(pagesMobileManager);
+		pagesMobileDataMgtSAXController.setPagesMobileManager(pagesMobileManager);
 		List pagesList = pagesMobileManager.getPages();
 		assertNotNull(pagesList);
 		assertTrue(pagesList.size() > 0);
-		pagesList = pagesMobileLoggingController.getPagesMobileManager().getPages();
+		pagesList = pagesMobileDataMgtSAXController.getPagesMobileManager().getPages();
 		assertNotNull(pagesList);
 		for (int i = 0; i < pagesList.size(); i++) {
 			page = (Pages) pagesList.get(i);
-			assertNotNull(pagesMobileLoggingController.getPagesMobileManager().getPage(page.getPageId()));
+			assertNotNull(pagesMobileDataMgtSAXController.getPagesMobileManager().getPage(page.getPageId()));
 		}
 	}
 	
@@ -67,7 +68,6 @@ public class PagesMobileLoggingControllerTest extends TestCase {
 	 * test.
 	 */
 	protected void tearDown() throws Exception {
-		
-	}
 
+	}
 }
