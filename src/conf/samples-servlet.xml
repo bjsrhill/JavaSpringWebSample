@@ -20,7 +20,8 @@
 				<prop key="/pagesListMobile.htm">pagesMobileController</prop>
 				<prop key="/sampleSpec.htm">pagesMobileSpecController</prop>
 				<prop key="/developmentSpecs.htm">pagesMobileDevelopmentController</prop>
-				<prop key="/dataManagement.htm">pagesMobileDataMgtController</prop>
+				<prop key="/dataDevelopment.htm">pagesMobileDataMgtController</prop>
+				<prop key="/dataDevelopmentSAX.htm">pagesMobileDataMgtSAXController</prop>
 				<prop key="styling.htm">pagesMobileStylingController</prop>
 				<prop key="logging.htm">pagesMobileLoggingController</prop>
 			</props>
@@ -37,6 +38,9 @@
 		</property>
 		<property name="pagesManager">
 			<ref bean="pagesManager" />
+		</property>
+		<property name="pages">
+			<ref bean="pages" />
 		</property>
 	</bean>
 	<bean name="pagesMobileController"
@@ -75,6 +79,15 @@
 			<ref bean="pagesMobileManager" />
 		</property>
 	</bean>
+	<bean name="pagesMobileDataMgtSAXController"
+		class="info.beverlyshill.samples.controller.PagesMobileDataMgtSAXController">
+		<property name="successView">
+			<value>dataDevelopmentSAX</value>
+		</property>
+		<property name="pagesMobileManager">
+			<ref bean="pagesMobileManager" />
+		</property>
+	</bean>
 	<bean name="pagesMobileStylingController"
 		class="info.beverlyshill.samples.controller.PagesMobileStylingController">
 		<property name="successView">
@@ -99,6 +112,8 @@
 		class="info.beverlyshill.samples.model.PagesManager" />
 	<bean id="pagesMobileManager"
 		class="info.beverlyshill.samples.model.PagesMobileManager" />
+	<bean id="pages"
+		class="info.beverlyshill.samples.model.Pages" />
 		
 	<!-- View Resolver -->
 	<bean id="viewResolver"

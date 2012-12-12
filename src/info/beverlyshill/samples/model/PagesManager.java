@@ -2,16 +2,21 @@ package info.beverlyshill.samples.model;
 
 import java.util.List;
 
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import info.beverlyshill.samples.util.HibernateUtil;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 import org.hibernate.LockMode;
-
-//import info.beverlyshill.samples.controller.PagesController;
 import info.beverlyshill.samples.model.Pages;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import java.util.Iterator;
 
 /**
  * Manages database operations for the Pages table.
@@ -19,8 +24,12 @@ import org.apache.commons.logging.LogFactory;
  * @author bhill2
  */
 public class PagesManager {
-
 	private static Log log = LogFactory.getLog(PagesManager.class);
+	private boolean description = false;
+	private String descriptionText = "";
+	private static String NAME = "Index";
+	private int totalPages = 0;
+	private static final String SAXPAGE = "dataDevelopmentSAX.htm";
 
 	/**
 	 * Returns list of all Pages records having name value of Index
@@ -32,13 +41,16 @@ public class PagesManager {
 		try {
 			PagesList = session.createQuery(
 					"from Pages where name = 'Index' ORDER BY pageId").list();
+			//get initial count of pages
+			if(totalPages == 0) {
+				totalPages = PagesList.size();
+			}
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			session.getTransaction().rollback();
 			log.error(e.getMessage());
 			throw e;
 		}
-
 		return PagesList;
 	}
 
@@ -109,6 +121,51 @@ public class PagesManager {
 			throw e;
 		} finally {
 			session.close();
+		}
+	}
+	
+	/**
+	 * Reads data.xml file value and inserts value into the sample database
+	 */
+	public void readXML(Pages pages) {
+		try {
+			SAXParserFactory factory = SAXParserFactory.newInstance();
+			SAXParser saxParser = factory.newSAXParser();
+			
+			DefaultHandler handler = new DefaultHandler() {
+				
+				public void startElement(String uri, String localName,String qName, 
+			                Attributes attributes) throws SAXException {
+					if (qName.equalsIgnoreCase("DESCRIPTION")) {
+						description = true;
+					}
+				}
+
+				public void endElement(String uri, String localName,
+					String qName) throws SAXException {
+					
+			 
+				}
+			 
+				public void characters(char ch[], int start, int length) throws SAXException {
+			 
+					if (description) {
+						descriptionText = new String(ch, start, length);
+						description = false;
+					}
+				}
+			};
+			saxParser.parse("../../Documents/beverlyshillsamples/samples/src/data.xml", handler);
+			List checkList = this.getPages();
+			if (checkList.size() <= totalPages) {
+				pages.setName(NAME);
+				pages.setTextDesc(descriptionText);
+				pages.setDetailPage(SAXPAGE);
+				savePages(pages);
+			}
+		}
+		catch(Exception e){
+			log.info("A SAX exception has occurred " + e.getMessage());
 		}
 	}
 }

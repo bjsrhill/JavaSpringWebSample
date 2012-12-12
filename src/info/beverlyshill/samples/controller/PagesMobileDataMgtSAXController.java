@@ -12,15 +12,11 @@ import info.beverlyshill.samples.model.Pages;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-/**
- * Controller class for the mobile data management detail page
- * 
- * @author bhill2
- */
-public class PagesMobileDataMgtController implements Controller {
+public class PagesMobileDataMgtSAXController implements Controller {
 	private PagesMobileManager pagesMobileManager;
+	private Pages pages;
 	public static final String MAP_KEY = "pages";
-	Log log = LogFactory.getLog(PagesMobileDataMgtController.class);
+	Log log = LogFactory.getLog(PagesMobileDataMgtSAXController.class);
 	private String successView;
 
 	/**
@@ -29,7 +25,9 @@ public class PagesMobileDataMgtController implements Controller {
 	 */
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Pages pages = pagesMobileManager.getPage(2);
+		//Load data from the data.xml file
+		pagesMobileManager.readXML(pages);
+		Pages pages = pagesMobileManager.getPage(11);
 		// Log Pages data retrieved
 		log.info("Retrieved " + pages.getTextDesc() + " from Pages table.");
 		return new ModelAndView(getSuccessView(), MAP_KEY, pages);
@@ -64,5 +62,13 @@ public class PagesMobileDataMgtController implements Controller {
 	public void setSuccessView(String successView) {
 		this.successView = successView;
 	}
+	
+	public Pages getPages() {
+		return this.pages;
+	}
 
+	public void setPages(Pages pages) {
+		this.pages = pages;
+	}
+	
 }

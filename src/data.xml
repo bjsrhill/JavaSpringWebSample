@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data>
+	<page>
+		<description>Data is obtained from an XML file parsed by the Java SAX parser</description>
+	</page>
+</data>

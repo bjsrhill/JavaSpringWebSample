@@ -2,6 +2,13 @@ package info.beverlyshill.samples.model;
 
 import java.util.List;
 
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import info.beverlyshill.samples.util.HibernateUtil;
@@ -19,6 +26,11 @@ import org.apache.commons.logging.LogFactory;
  */
 public class PagesMobileManager {
 	private static Log log = LogFactory.getLog(PagesMobileManager.class);
+	private int totalPages = 0;
+	private static final String SAXPAGE = "dataDevelopmentSAX.htm";
+	private static String NAME = "Index";
+	private boolean description = false;
+	private String descriptionText = "";
 
 	/**
 	 * Returns list of all Pages records for mobile detail pages
@@ -107,6 +119,51 @@ public class PagesMobileManager {
 			throw e;
 		} finally {
 			session.close();
+		}
+	}
+	
+	/**
+	 * Reads data.xml file value and inserts value into the sample database
+	 */
+	public void readXML(Pages pages) {
+		try {
+			SAXParserFactory factory = SAXParserFactory.newInstance();
+			SAXParser saxParser = factory.newSAXParser();
+			
+			DefaultHandler handler = new DefaultHandler() {
+				
+				public void startElement(String uri, String localName,String qName, 
+			                Attributes attributes) throws SAXException {
+					if (qName.equalsIgnoreCase("DESCRIPTION")) {
+						description = true;
+					}
+				}
+
+				public void endElement(String uri, String localName,
+					String qName) throws SAXException {
+					
+			 
+				}
+			 
+				public void characters(char ch[], int start, int length) throws SAXException {
+			 
+					if (description) {
+						descriptionText = new String(ch, start, length);
+						description = false;
+					}
+				}
+			};
+			saxParser.parse("../../Documents/beverlyshillsamples/samples/src/data.xml", handler);
+			List checkList = getPages();
+			if (checkList.size() <= totalPages) {
+				pages.setName(NAME);
+				pages.setTextDesc(descriptionText);
+				pages.setDetailPage(SAXPAGE);
+				savePages(pages);
+			}
+		}
+		catch(Exception e){
+			log.info("A SAX exception has occurred " + e.getMessage());
 		}
 	}
 }

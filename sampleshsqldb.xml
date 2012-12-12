@@ -56,7 +56,9 @@
       	 INSERT INTO Pages (name, textDesc, detailPage) 
       	      	 VALUES ('Heading', 'Development Methodology', 'developmentSpecs.htm');
       	 INSERT INTO Pages (name, textDesc, detailPage) 
-      	      	 VALUES ('Heading', 'Data Management', 'dataManagement.htm');
+      	      	 VALUES ('Heading', 'Data Management', 'dataDevelopment.htm');
+      	INSERT INTO Pages (name, textDesc, detailPage) 
+      	      	      	 VALUES ('Heading', 'Data Management XML Java SAX', 'dataDevelopmentSAX.htm');
       	 INSERT INTO Pages (name, textDesc, detailPage) 
       	      	 VALUES ('Heading', 'Styling', 'styling.htm');
       	 INSERT INTO Pages (name, textDesc, detailPage) 
