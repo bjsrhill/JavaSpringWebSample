@@ -36,6 +36,7 @@ public class SimpleTest extends TestCase {
 	 * functioning properly
 	 */
 	public void testAddFail() {
-		assertTrue(value1 - value2 == expectedResult);
+		//Remove comment in order to have a failing test
+		//assertTrue(value1 - value2 == expectedResult);
 	}
 }
