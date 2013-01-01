@@ -201,7 +201,7 @@ Build file for Samples application
 	<!-- test -->
     <target name="test" depends="compile">
 	<echo>Running tests</echo>
-        <junit printsummary="true" showoutput="yes" filtertrace="false">
+        <junit printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
             <classpath refid="master-classpath" />
             <batchtest fork="yes">
                 <formatter type="plain" />
