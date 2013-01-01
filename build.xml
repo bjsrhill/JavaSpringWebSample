@@ -204,7 +204,7 @@ Build file for Samples application
         <junit printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
             <classpath refid="master-classpath" />
             <batchtest fork="yes">
-                <formatter type="plain" />
+                <formatter type="xml" />
                 <fileset dir="${class.dir}">
                     <include name="**/*Test.class" />
                     <exclude name="**/HibernateTest.class" />
