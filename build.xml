@@ -41,6 +41,17 @@ Build file for Samples application
         </fileset>
         <pathelement location="build/samples/WEB-INF/classes/" />
     </path>
+	<path id="cobertura-classpath">
+	    <fileset dir="${cobertura.dir}">
+	        <include name="cobertura.jar" />
+	        <include name="lib/**/*.jar" />
+	    	<include name="jakarta-oro-2.0.8.jar" />
+	    	<include name="log4j-1.2.9.jar" />
+	    	<include name="asm-3.0.jar" />
+	    	<include name="asm-tree-3.0.jar" />
+	    </fileset>
+	</path>
+	<taskdef classpathref="cobertura-classpath" resource="tasks.properties" />
 
 	<!-- init -->
     <target name="init" description="Setup for build script">
@@ -56,6 +67,7 @@ Build file for Samples application
         <mkdir dir="${model.dir}" />
         <mkdir dir="${controller.dir}" />
         <mkdir dir="${util.dir}" />
+    	<mkdir dir="${instrumented.dir}" />
     </target>
 
 	<!-- clean -->
@@ -150,7 +162,9 @@ Build file for Samples application
 	<echo>Running compile</echo>
         <javac srcdir="${src.dir}" destdir="${class.dir}" debug="true" 
                failonerror="true" classpathref="master-classpath" 
-        	   depend="true"/>
+        	   depend="true">
+        	<classpath refid="cobertura-classpath" />
+        	</javac>
     </target>
 
 	<!-- build -->
@@ -201,7 +215,8 @@ Build file for Samples application
 	<!-- test -->
     <target name="test" depends="compile">
 	<echo>Running tests</echo>
-        <junit printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
+        <junit fork="yes" printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
+        	<classpath location="${class.dir}" />
             <classpath refid="master-classpath" />
             <batchtest fork="yes">
                 <formatter type="xml" />
@@ -216,10 +231,24 @@ Build file for Samples application
             </batchtest>
         </junit>
     </target>
+	
+	<!-- code coverage -->
+	<target name="coverage" depends="compile">
+		<echo>Running coverage</echo>
+		<delete file="cobertura.ser"/>
+		<delete dir="${instrumented.dir}" />
+		<cobertura-instrument todir="${instrumented.dir}">
+			<fileset dir="${class.dir}">
+				<include name="**/*.class" />
+				<exclude name="**/*Test.class" />
+			</fileset>
+		</cobertura-instrument>
+	</target>
+	
 
 	<!-- Hibernate test-->
     <target name="hibernatetest" depends="build">
-	<echo>Running hibernatetest</echo>
+		<echo>Running hibernatetest</echo>
         <java fork="true" classpathref="master-classpath" 
               classname="info.beverlyshill.samples.test.HibernateTest" />
     </target>
