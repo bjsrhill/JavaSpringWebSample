@@ -245,6 +245,11 @@ Build file for Samples application
 		</cobertura-instrument>
 	</target>
 	
+	<!-- code coverage report -->
+	<target name="run-cobertura" depends="coverage">
+		<cobertura-report srcdir="${src.dir}" destdir="${instrumented.dir}"/>
+	</target>
+	
 
 	<!-- Hibernate test-->
     <target name="hibernatetest" depends="build">
