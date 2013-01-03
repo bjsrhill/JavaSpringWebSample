@@ -211,6 +211,25 @@ Build file for Samples application
         <java fork="true" classpathref="master-classpath" 
               classname="junit.swingui.TestRunner" />
     </target>
+	
+	<!-- code coverage -->
+		<target name="coverage">
+			<echo>Running coverage</echo>
+			<delete file="cobertura.ser"/>
+			<delete dir="${instrumented.dir}" />
+			<cobertura-instrument todir="${instrumented.dir}">
+				<fileset dir="${class.dir}">
+					<include name="**/*.class" />
+					<exclude name="**/*Test.class" />
+					<exclude name="**/Hibernate*.class"/>
+				</fileset>
+			</cobertura-instrument>
+		</target>
+		
+		<!-- code coverage report -->
+		<target name="run-cobertura" depends="coverage">
+			<cobertura-report format="xml" srcdir="${src.dir}" destdir="${instrumented.dir}"/>
+		</target>
 
 	<!-- test -->
     <target name="test" depends="build">
@@ -218,6 +237,7 @@ Build file for Samples application
         <junit fork="yes" printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
         	<sysproperty key="net.sourceforge.cobertura.datafile"
         			file="cobertura.ser" />
+        	<classpath location="${instrumented.dir}" />
         	<classpath location="${class.dir}" />
             <classpath refid="master-classpath" />
             <batchtest fork="yes">
@@ -233,25 +253,7 @@ Build file for Samples application
             </batchtest>
         </junit>
     </target>
-	
-	<!-- code coverage -->
-	<target name="coverage" depends="test">
-		<echo>Running coverage</echo>
-		<delete file="cobertura.ser"/>
-		<delete dir="${instrumented.dir}" />
-		<cobertura-instrument todir="${instrumented.dir}">
-			<fileset dir="${class.dir}">
-				<include name="**/*.class" />
-				<exclude name="**/*Test.class" />
-			</fileset>
-		</cobertura-instrument>
-	</target>
-	
-	<!-- code coverage report -->
-	<target name="run-cobertura" depends="coverage">
-		<cobertura-report format="xml" srcdir="${src.dir}" destdir="${instrumented.dir}"/>
-	</target>
-	
+		
 
 	<!-- Hibernate test-->
     <target name="hibernatetest" depends="build">
