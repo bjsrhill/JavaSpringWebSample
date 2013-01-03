@@ -237,7 +237,6 @@ Build file for Samples application
         <junit fork="yes" printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
         	<sysproperty key="net.sourceforge.cobertura.datafile"
         			file="cobertura.ser" />
-        	<classpath location="${instrumented.dir}" />
         	<classpath location="${class.dir}" />
             <classpath refid="master-classpath" />
             <batchtest fork="yes">
