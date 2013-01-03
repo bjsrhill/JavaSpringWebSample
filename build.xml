@@ -216,6 +216,8 @@ Build file for Samples application
     <target name="test" depends="build">
 	<echo>Running tests</echo>
         <junit fork="yes" printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
+        	<sysproperty key="net.sourceforge.cobertura.datafile"
+        			file="cobertura.ser" />
         	<classpath location="${class.dir}" />
             <classpath refid="master-classpath" />
             <batchtest fork="yes">
