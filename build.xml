@@ -168,7 +168,7 @@ Build file for Samples application
     </target>
 
 	<!-- build -->
-    <target name="build" depends="compile,updateweb,updateconfig,updatelib" />
+    <target name="build" depends="init,compile,updateweb,updateconfig,updatelib" />
 
 	<!-- rebuild -->
     <target name="rebuild" 
@@ -213,7 +213,7 @@ Build file for Samples application
     </target>
 
 	<!-- test -->
-    <target name="test" depends="compile">
+    <target name="test" depends="build">
 	<echo>Running tests</echo>
         <junit fork="yes" printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
         	<classpath location="${class.dir}" />
@@ -233,7 +233,7 @@ Build file for Samples application
     </target>
 	
 	<!-- code coverage -->
-	<target name="coverage" depends="compile">
+	<target name="coverage" depends="test">
 		<echo>Running coverage</echo>
 		<delete file="cobertura.ser"/>
 		<delete dir="${instrumented.dir}" />
@@ -247,7 +247,7 @@ Build file for Samples application
 	
 	<!-- code coverage report -->
 	<target name="run-cobertura" depends="coverage">
-		<cobertura-report srcdir="${src.dir}" destdir="${instrumented.dir}"/>
+		<cobertura-report format="xml" srcdir="${src.dir}" destdir="${instrumented.dir}"/>
 	</target>
 	
 
