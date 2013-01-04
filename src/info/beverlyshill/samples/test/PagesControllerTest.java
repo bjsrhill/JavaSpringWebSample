@@ -22,7 +22,6 @@ public class PagesControllerTest extends TestCase {
 	private PagesController pagesController = null;
 	private PagesManager pagesManager = new PagesManager();
 	private Pages page = null;
-	private String name = "Index";
 	private String desc = "description controller";
 	private boolean match = false;
 	private int pageId = 0;
@@ -35,16 +34,28 @@ public class PagesControllerTest extends TestCase {
 	public static Test suite() {
 		return new TestSuite(PagesControllerTest.class);
 	}
+	
+	/**
+	 * Tests getting and setting the PagesManager on the
+	 * PagesController
+	 */
+	public void testGetPagesManager() {
+		PagesController newPagesController = new PagesController();
+		PagesManager newPagesManager = new PagesManager();
+		newPagesController.setPagesManager(newPagesManager);
+		PagesManager secondPagesManager = null;
+		secondPagesManager = newPagesController.getPagesManager();
+		assertNotNull(secondPagesManager);
+	}
 
 	/**
-	 * Tests getting a particular Pages record
+	 * Tests returning a list of Pages database objects 
+	 * from a ModelAndView request.
 	 */
-	public void testShowForm() throws Exception {
+	public void testHandleRequest() throws Exception {
 		mockHttpServletRequest = new MockHttpServletRequest("GET",
 				"/index.html");
-
 		try {
-			Pages pages = new Pages();
 			pagesController = new PagesController();
 			pagesController.setPagesManager(pagesManager);
 			ModelAndView modelAndView = pagesController.handleRequest(
@@ -73,16 +84,7 @@ public class PagesControllerTest extends TestCase {
 	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
-		try {
-			Pages page = null;
-			page = new Pages();
-			page.setName(name);
-			page.setTextDesc(desc);
-			pagesManager.savePages(page);
-		} catch (Exception e) {
-			log.error(e.getMessage());
-			throw e;
-		}
+		
 	}
 
 	/**
@@ -90,6 +92,6 @@ public class PagesControllerTest extends TestCase {
 	 * test.
 	 */
 	protected void tearDown() throws Exception {
-		pagesManager.deletePage(pageId);
+		
 	}
 }
