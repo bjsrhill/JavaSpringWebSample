@@ -22,7 +22,7 @@ public class PagesControllerTest extends TestCase {
 	private PagesController pagesController = null;
 	private PagesManager pagesManager = new PagesManager();
 	private Pages page = null;
-	private String desc = "description controller";
+	private String desc = "This is a sample web application built with the Spring framework.";
 	private boolean match = false;
 	private int pageId = 0;
 	private static Log log = LogFactory.getLog(PagesControllerTest.class);
