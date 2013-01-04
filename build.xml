@@ -51,7 +51,13 @@ Build file for Samples application
 	    	<include name="asm-tree-3.0.jar" />
 	    </fileset>
 	</path>
+	<path id="cobertura2-classpath">
+		    <fileset dir="${cobertura.dir}">
+		        <include name="cobertura.jar" />
+		    </fileset>
+		</path>
 	<taskdef classpathref="cobertura-classpath" resource="tasks.properties" />
+
 
 	<!-- init -->
     <target name="init" description="Setup for build script">
@@ -163,7 +169,6 @@ Build file for Samples application
         <javac srcdir="${src.dir}" destdir="${class.dir}" debug="true" 
                failonerror="true" classpathref="master-classpath" 
         	   depend="true">
-        	<classpath refid="cobertura-classpath" />
         	</javac>
     </target>
 
@@ -237,7 +242,9 @@ Build file for Samples application
         <junit fork="yes" printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
         	<sysproperty key="net.sourceforge.cobertura.datafile"
         			file="cobertura.ser" />
+        	<classpath location="${instrumented.dir}" />
         	<classpath location="${class.dir}" />
+        	<classpath refid="cobertura2-classpath" />
             <classpath refid="master-classpath" />
             <batchtest fork="yes">
                 <formatter type="xml" />
