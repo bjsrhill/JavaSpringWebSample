@@ -58,7 +58,6 @@ Build file for Samples application
 		</path>
 	<taskdef classpathref="cobertura-classpath" resource="tasks.properties" />
 
-
 	<!-- init -->
     <target name="init" description="Setup for build script">
 	<echo>Running init</echo>
@@ -226,6 +225,7 @@ Build file for Samples application
 				<fileset dir="${class.dir}">
 					<include name="**/*.class" />
 					<exclude name="**/*Test.class" />
+					<exclude name="**/*$*.class"/>
 					<exclude name="**/Hibernate*.class"/>
 				</fileset>
 			</cobertura-instrument>
