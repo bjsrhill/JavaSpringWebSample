@@ -40,7 +40,7 @@ public class PagesControllerTest extends TestCase {
 	 * Tests getting and setting the PagesManager on the
 	 * PagesController
 	 */
-	public void testGetPagesManager() {
+	public void testGetSetPagesManager() {
 		PagesController newPagesController = new PagesController();
 		PagesManager newPagesManager = new PagesManager();
 		newPagesController.setPagesManager(newPagesManager);
@@ -103,6 +103,6 @@ public class PagesControllerTest extends TestCase {
 	 * test.
 	 */
 	protected void tearDown() throws Exception {
-		
+		pagesManager.deletePage(pageId);
 	}
 }
