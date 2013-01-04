@@ -8,15 +8,12 @@ import javax.xml.parsers.SAXParserFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import info.beverlyshill.samples.util.HibernateUtil;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import org.hibernate.LockMode;
 import info.beverlyshill.samples.model.Pages;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import java.util.Iterator;
 
 /**
  * Manages database operations for the Pages table.

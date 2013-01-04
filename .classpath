@@ -4,8 +4,6 @@
 	<classpathentry kind="var" path="JRE_LIB" sourcepath="JRE_SRC"/>
 	<classpathentry kind="lib" path="lib/activation.jar"/>
 	<classpathentry kind="lib" path="lib/antlr-2.7.6rc1.jar"/>
-	<classpathentry kind="lib" path="lib/asm-attrs.jar"/>
-	<classpathentry kind="lib" path="lib/asm.jar"/>
 	<classpathentry kind="lib" path="lib/cglib-2.1.3.jar"/>
 	<classpathentry kind="lib" path="lib/commons-beanutils-1.7.0.jar"/>
 	<classpathentry kind="lib" path="lib/commons-collections-2.1.1.jar"/>
@@ -32,9 +30,9 @@
 	<classpathentry kind="lib" path="lib/org.springframework.web-3.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/org.springframework.web.servlet-3.1.1.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/quartz-1.5.1.jar"/>
-	<classpathentry kind="lib" path="lib/spring-hibernate3.jar"/>
 	<classpathentry kind="lib" path="lib/spring-mock.jar"/>
 	<classpathentry kind="lib" path="lib/standard.jar"/>
 	<classpathentry kind="con" path="/Users/bhill2/Documents/BeverlySHillSamples/samples/build/samples/WEB-INF/classes"/>
+	<classpathentry kind="lib" path="/Users/bhill2/Documents/BeverlySHillSamples/samples/lib/asm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
