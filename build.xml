@@ -227,12 +227,12 @@ Build file for Samples application
 		</target>
 		
 		<!-- code coverage report -->
-		<target name="run-cobertura" depends="coverage">
+		<target name="run-cobertura">
 			<cobertura-report format="xml" srcdir="${src.dir}" destdir="${instrumented.dir}"/>
 		</target>
 
 	<!-- test -->
-    <target name="test" depends="build">
+    <target name="test" depends="coverage">
 	<echo>Running tests</echo>
         <junit fork="yes" printsummary="true" showoutput="yes" filtertrace="false" haltonfailure="yes">
         	<sysproperty key="net.sourceforge.cobertura.datafile"
