@@ -22,7 +22,8 @@ public class PagesControllerTest extends TestCase {
 	private PagesController pagesController = null;
 	private PagesManager pagesManager = new PagesManager();
 	private Pages page = null;
-	private String desc = "This is a sample web application built with the Spring framework.";
+	private String name = "Index";
+	private String desc = "description controller";
 	private boolean match = false;
 	private int pageId = 0;
 	private static Log log = LogFactory.getLog(PagesControllerTest.class);
@@ -84,6 +85,16 @@ public class PagesControllerTest extends TestCase {
 	 * Create test Pages objects in database. This is called before each test.
 	 */
 	protected void setUp() throws Exception {
+		try {
+			Pages page = null;
+			page = new Pages();
+			page.setName(name);
+			page.setTextDesc(desc);
+			pagesManager.savePages(page);
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			throw e;
+		}
 		
 	}
 
