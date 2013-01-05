@@ -8,10 +8,21 @@
   <property name="hport" value="9005"/>
     
   <target name="starthsql">
-    <java fork="true"
+    <java fork="true" spawn="true"
           classname="${hclass}" classpath="${hjar}" 
           args="${hfile} -dbname.0 ${halias} -port ${hport}"/>
   </target>
+	
+	 <target name="stophsql">
+	 	<java classpath="${hjar}"  classname="org.hsqldb.util.SqlTool" fork="true">
+        	<arg value="--noinput"/> 
+        	<arg value="--sql"/>
+        	<arg value="'shutdown;'"/>
+        	<arg value="--rcfile"/>
+        	<arg value="sqltool.rc"/>
+        	<arg value="localhost-sa"/>	        	       		        	
+        </java>
+	  </target>
     
   <target name="execddl">
       <sql classpath="${hjar}"
