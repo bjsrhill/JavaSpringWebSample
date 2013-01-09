@@ -90,7 +90,7 @@ public class PagesControllerTest extends TestCase {
 			page.setTextDesc(desc);
 			pagesManager.savePages(page);
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error("An error occurred in testing setUp. " + e.getMessage());
 			throw e;
 		}
 		
