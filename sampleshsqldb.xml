@@ -63,8 +63,6 @@
       	      	 VALUES ('Heading', 'Styling', 'styling.htm');
       	 INSERT INTO Pages (name, textDesc, detailPage) 
       	 VALUES ('Heading', 'Logging', 'logging.htm');   	
-		 -- Select data that was inserted
-		 SELECT * FROM Pages;
       </sql>
   </target>
   <target name="hsqldm">
