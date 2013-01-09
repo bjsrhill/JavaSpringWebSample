@@ -74,7 +74,7 @@ public class PagesControllerTest extends TestCase {
 			assertTrue(match == true);
 			System.out.println(page.getTextDesc() + " passed!");
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error("An error occurred in testHandleRequest. The error is: " + e.getMessage());
 			throw e;
 		}
 	}
