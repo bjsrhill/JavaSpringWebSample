@@ -23,7 +23,7 @@ public class PagesControllerTest extends TestCase {
 	private PagesManager pagesManager = new PagesManager();
 	private Pages page = null;
 	private String name = "Index";
-	private String desc = "Pages controller";
+	private String desc = "Pages Controller Test";
 	private boolean match = false;
 	private int pageId = 0;
 	private static Log log = LogFactory.getLog(PagesControllerTest.class);
