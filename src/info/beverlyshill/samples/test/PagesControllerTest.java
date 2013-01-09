@@ -44,9 +44,7 @@ public class PagesControllerTest extends TestCase {
 		PagesController newPagesController = new PagesController();
 		PagesManager newPagesManager = new PagesManager();
 		newPagesController.setPagesManager(newPagesManager);
-		PagesManager secondPagesManager = null;
-		secondPagesManager = newPagesController.getPagesManager();
-		assertNotNull(secondPagesManager);
+		assertNotNull(newPagesController.getPagesManager());
 	}
 
 	/**
