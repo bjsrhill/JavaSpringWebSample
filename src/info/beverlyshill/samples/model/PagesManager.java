@@ -92,7 +92,7 @@ public class PagesManager {
 			session.getTransaction().commit();
 		} catch (HibernateException e) {
 			session.getTransaction().rollback();
-			log.error(e.getMessage());
+			log.error("An error occurred in savePages: " + e.getMessage());
 			throw e;
 		} finally {
 			session.close();
