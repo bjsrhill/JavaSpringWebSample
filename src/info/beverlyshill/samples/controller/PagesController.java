@@ -33,7 +33,7 @@ public class PagesController implements Controller {
 		pagesManager.readXML(pages);
 		List pages = pagesManager.getPages();
 		// Log number of Pages records retrieved
-		log.info("Retrieved " + pages.size() + " records from Pages table from pages.");
+		log.info("Retrieved " + pages.size() + " records from Pages table.");
 		return new ModelAndView(getSuccessView(), MAP_KEY, pages);
 	}
 
