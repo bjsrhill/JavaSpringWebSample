@@ -46,7 +46,7 @@ public class PagesController implements Controller {
 		try {
 			return new ModelAndView(getSuccessView());
 		} catch (Exception e) {
-			log.error(e.getMessage());
+			log.error("An error has occurred in showForm: " + e.getMessage());
 			throw e;
 		}
 	}
